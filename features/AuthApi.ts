@@ -14,6 +14,7 @@ export const signUp = async (values: any) => {
 }
 
 export const verifyAccount = async (values: any) => {
+    console.log(values)
     const response = await axios.post(`${uri}/activate-user`, values);
     return response.data;
 }

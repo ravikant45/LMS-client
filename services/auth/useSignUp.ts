@@ -7,7 +7,7 @@ const useSignUp = () => {
     const { mutate, isPending } = useMutation({
         mutationFn: (values: any) => signUp(values),
         onSuccess: async (res: any) => {
-            await AsyncStorage.setItem('activationToken', res.activationToken);
+            await AsyncStorage.setItem('activation_token', res.activation_token);
             Toast.show(res.message, {
                 type: 'success'
             })

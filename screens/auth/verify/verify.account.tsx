@@ -38,10 +38,10 @@ const VerifyAccount = (props: Props) => {
 
     const handleSubmit = async () => {
         const otp = code.join("");
-        const activationToken = await AsyncStorage.getItem('activationToken');
+        const activation_token = await AsyncStorage.getItem('activation_token');
         const data = {
-            activationCode: otp,
-            activationToken
+            activation_code: otp,
+            activation_token
         }
         verifyAccount(data, {
             onSuccess: () => {
