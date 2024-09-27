@@ -8,12 +8,13 @@ export const loginUser = async (values: any) => {
 }
 
 export const signUp = async (values: any) => {
+    console.log(values)
     const response = await axios.post(`${uri}/registration`, values);
     return response.data;
 }
 
 export const verifyAccount = async (values: any) => {
-    const response = await axios.post(`${uri}/verify-account`, values);
+    const response = await axios.post(`${uri}/activate-user`, values);
     return response.data;
 }
 
