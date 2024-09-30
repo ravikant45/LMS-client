@@ -10,16 +10,20 @@ const useUser = () => {
 
     useEffect(() => {
         const subscription = async () => {
-            const data = await getUserProfile();
-            if (data.error) {
-                setError(data.error);
+            try {
+                const data = await getUserProfile();
+                if (data.error) {
+                    setError(data.error);
+                } else {
+                    setUser(data.user);
+                }
+            } catch (err: any) {
+                setError(err.message || "An error occurred while fetching the user profile.");
+            } finally {
                 setLoading(false);
-                return;
             }
+        };
 
-            setUser(data.user);
-            setLoading(false);
-        }
         subscription();
     }, [refetch]);
 
@@ -30,6 +34,6 @@ const useUser = () => {
         setRefetch,
         refetch
     };
-}
+};
 
 export default useUser;

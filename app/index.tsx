@@ -4,7 +4,13 @@ import { Redirect } from "expo-router";
 
 export default function Index() {
   const { loading, user } = useUser();
-
-  if (loading) <Loader />;
-  return <Redirect href={`${!user ? '/(routes)/onboarding' : '/(tabs)'}`} />;
+  return (
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Redirect href={!user ? "/(routes)/onboarding" : "/(tabs)"} />
+      )}
+    </>
+  );
 }

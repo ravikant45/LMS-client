@@ -7,13 +7,14 @@ const useSignUp = () => {
     const { mutate, isPending } = useMutation({
         mutationFn: (values: any) => signUp(values),
         onSuccess: async (res: any) => {
-            await AsyncStorage.setItem('activation_token', res.activation_token);
+            await AsyncStorage.setItem('activation_token', res.activationToken);
             Toast.show(res.message, {
                 type: 'success'
             })
         },
         onError: (err: any) => {
-            Toast.show("Email already Exists!!", { type: 'danger' })
+            console.log(err)
+            Toast.show(err?.message, { type: 'danger' })
         }
     })
 
