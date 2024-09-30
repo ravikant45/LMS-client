@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 14,
-        color: '#000000',
+        color: '#e0e0e0',
     },
     nameTxt: {
         fontSize: 16,
